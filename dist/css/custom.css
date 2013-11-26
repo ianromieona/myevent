@@ -1,0 +1,17 @@
+body{
+    background: #f2f2f2 !important;
+}
+.form-control{
+   border-radius:0px !important;
+   
+}
+.panels{
+    background:#FFFFFF;
+    margin:3px;
+}
+#messagesDiv{
+    word-wrap:break-word;
+    background: #f2f2f2 !important;
+    max-height:400px !important;
+    overflow-x:hidden
+}

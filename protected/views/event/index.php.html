@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href='leaflet.css'>
+<link rel="stylesheet" href='bootstrap.min.css'>
+    </head>
+<body>
+    <div id="map" style="width: 100%; height: 500px; position: relative;" class="leaflet-container leaflet-fade-anim" tabindex="0"></div>
+    </body>
+
+
+
+<script src="leaflet.js"></script>
+<script>
+
+		var map = L.map('map').setView([11.3333,123.0167], 5);
+
+		L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
+		}).addTo(map);
+
+
+		L.marker([14.902321826141808, 120.88256835937499 ]).addTo(map)
+			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+
+
+		var popup = L.popup();
+
+		function onMapClick(e) {
+//			popup
+//				.setLatLng(e.latlng)
+//				.setContent("You clicked the map at " + e.latlng.toString())
+//				.openOn(map);
+//            console.log(e.latlng.lat +" "+e.latlng.lng)
+            L.marker([e.latlng.lat, e.latlng.lng]).addTo(map)
+                .bindPopup('<form method="post" action="http://google.com"><input type="text"> <br><textarea></textarea><br><input type="submit" value="Save" class="btn btn-primary">')
+                .openPopup();
+		}
+
+		map.on('click', onMapClick);
+
+	</script>
+    </html>
